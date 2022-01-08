@@ -11,11 +11,11 @@ for abb in abbreviations:
         if abb not in list_of_countries:
             list_of_countries.append(abb)
 
-compositions = [comp for comp in countries.composition.to_list()]
-for comp in compositions:
-    if type(comp) == str:
-        if comp not in list_of_countries:
-            list_of_countries.append(comp)
+# compositions = [comp for comp in countries.composition.to_list()]
+# for comp in compositions:
+#     if type(comp) == str:
+#         if comp not in list_of_countries:
+#             list_of_countries.append(comp)
 
 currencies = countries.currency.to_list()
 currencies_ = []
@@ -31,8 +31,8 @@ def get_capital_from_country(country_name: str)-> str:
     """ 
     if country_name in abbreviations:
         index = countries[countries.abbreviation == country_name].index[0]
-    elif country_name in compositions:
-        index = countries[countries.composition == country_name].index[0]
+    # elif country_name in compositions:
+    #     index = countries[countries.composition == country_name].index[0]
     else:
         index = countries[countries.country == country_name].index[0]
     return countries["capital"][index]
@@ -64,8 +64,8 @@ def say_capital(country_name):
     text_speech.setProperty("rate", 140)
     if country_name in abbreviations:
         index = countries[countries.abbreviation == country_name].index[0]
-    elif country_name in compositions:
-        index = countries[countries.composition == country_name].index[0]
+    # elif country_name in compositions:
+    #     index = countries[countries.composition == country_name].index[0]
     else:
         index = countries[countries.country == country_name].index[0]
     country = countries["country"][index]
