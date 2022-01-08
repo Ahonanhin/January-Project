@@ -6,5 +6,5 @@ the file contains.
 
 This app is stil in development as I need to merge its pages.
 
-Speaking.py takes in voice input and returns answers to the voiced question in a tkinter window
-Typing.py takes questions written as text and returns typed answers in a tkinter window
+Speaking.py is an app that takes in voice input and returns answers to the voiced question in a tkinter window
+Typing.py is an app that takes questions written as text and returns typed answers in a tkinter window
