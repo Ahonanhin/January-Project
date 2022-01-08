@@ -19,28 +19,26 @@ text_output = ttk.Label(app, text= "", font = "Agency_FB 18")
 text_output.pack()
 
 def find_country(text):
-     for capital in text:
-         if capital in dv.list_of_capitals:
+     for capital in dv.list_of_capitals:
+         if capital in text:
             text_output.config(text = dv.get_country_from_capital(capital))
 
 def find_capital(text):
-     for country in text:
-         if country in dv.list_of_countries:
+     for country in dv.list_of_countries:
+         if country in text:
             text_output.config(text = dv.get_capital_from_country(country))
 
 def find_currency(text):
-     for country in text:
-         if country in dv.list_of_countries:
+     for country in dv.list_of_countries:
+         if country in text:
             text_output.config(text = dv.get_currency_from_country(country))
 
 
 def find():
     text = txt.get()
-    text = text.split(" ")
-    print(text)
-    if any(elem in dv.keywords_3 for elem in text):
+    if dv.keywords_3 in text:
         find_country(text)
-    elif any(elem in dv.keywords_2 for elem in text):
+    elif dv.keywords_2 in text:
         find_capital(text)
     else:
         find_currency(text)
