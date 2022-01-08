@@ -9,29 +9,28 @@ mic = sr.Microphone()
 r = sr.Recognizer()
 
 def find_capital(words):
-    for element in words:
-            if element in dv.list_of_countries:
-                dv.say_capital(element)
+    for country in dv.list_of_countries:
+            if country in words:
+                dv.say_capital(country)
 
 def find_country(words):
-    for element in words:
-            if element in dv.list_of_capitals:
-                dv.say_country(element)
+    for capital in dv.list_of_capitals:
+            if capital in words:
+                dv.say_country(capital)
 
 def find_currency(words):
-    for element in words:
-            if element in dv.list_of_countries:
-                dv.say_currency(element)
+    for country in dv.list_of_countries:
+            if element in words:
+                dv.say_currency(country)
 def find():
     with mic as source:
          r.adjust_for_ambient_noise(source)
          audio = r.listen(source)
     words = r.recognize_google(audio)
-    words = words.split(" ")
     print(words)
-    if any(elem in dv.keywords_3 for elem in words):
+    if dv.keywords_3 in words:
         find_country(words)
-    elif any(elem in dv.keywords_2 for elem in words):
+    elif dv.keywords_2 in words:
         find_capital(words)
     else:
         find_currency(words)
